@@ -1,0 +1,18 @@
+<div class="container mt-5 mb-5 col-md-6">
+  <h2>New article</h2>
+</div>
+
+<div class="container border rounded p-5 bg-light col-md-6">
+  <%= form_for :article, url: articles_path do |f| %>
+    <p>
+      <%= f.label :title, class: 'form-label' %><br>
+      <%= f.text_field :title, class: 'form-control' %>
+    </p>
+    <p>
+      <%= f.label :text, class: 'form-label' %><br>
+      <%= f.text_area :text, class: 'form-control' %>
+    </p>
+
+    <%= f.submit class: 'btn btn-primary mt-3' %>
+  <% end %>
+</div>

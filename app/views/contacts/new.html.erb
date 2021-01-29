@@ -1,0 +1,29 @@
+<div class="container mt-5 mb-5 col-md-6">
+  <h2>Contact us</h2>
+</div>
+
+<div class="container p-5 bg-light border rounded col-md-6">
+  <%= form_for :contact, url: contacts_path do |f| %>
+    <% if @contact && @contact.errors.any? %>
+      <p>
+        <ul>
+          <% @contact.errors.full_messages.each do |msg| %>
+            <small>
+              <li><%= msg %></li>
+            </small>
+          <% end %>
+        </ul>
+      </p>
+    <% end %>
+    <p>
+      <%= f.label :email, class: 'form-label' %><br>
+      <%= f.text_field :email, class: 'form-control' %>
+    </p>
+    <p>
+      <%= f.label :message, class: 'form-label' %><br>
+      <%= f.text_area :message, class: 'form-control' %>
+    </p>
+
+    <%= f.submit 'Send message', class: 'btn btn-primary mt-3' %>
+  <% end %>
+</div>

@@ -1,0 +1,48 @@
+<div class="container border rounded p-3 mt-5 mb-5 col-md-6">
+  <div class="container mt-5">
+    <h4><%= @article.title %></h4>
+  </div>
+
+  <div class="container mb-5">
+    <p><%= @article.text %></p>
+  </div>
+</div>
+
+
+
+<div class="container p-5 bg-light border rounded mb-5 col-md-6">
+  <div class="container mt-5">
+    <h6>Comments</h6>
+  </div>
+
+  <div class="container mb-5">
+    <% @article.comments.each do |comment| %>
+      <hr>
+      <small><b><%= comment.author %>:</b></small>
+      <small><%= comment.body %></small>
+      <hr>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="container border rounded p-5 bg-light col-md-6">
+  <div class="container mt-5">
+    <h6>Add new comment</h6>
+  </div>
+
+  <div class="container mb-5">
+    <%= form_for([@article, @article.comments.build]) do |f| %>
+      <p>
+        <%= f.label :author, class: 'form-label' %><br>
+        <%= f.text_field :author, class: 'form-control' %>
+      </p>
+      <p>
+        <%= f.label :body, class: 'form-label' %><br>
+        <%= f.text_area :body, class: 'form-control' %>
+      </p>
+
+      <%= f.submit class: 'btn btn-primary mt-3' %>
+    <% end %>
+  </div>
+</div>
