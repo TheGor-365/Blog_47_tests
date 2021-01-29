@@ -31,6 +31,8 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
   gem 'factory_bot_rails'
+  gem 'database_cleaner-active_record'
+  gem 'database_cleaner_sequel'
 end
 
 # Use Active Storage variant

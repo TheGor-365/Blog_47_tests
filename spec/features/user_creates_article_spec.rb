@@ -6,11 +6,14 @@ DatabaseCleaner.strategy = :truncation
 # then, whenever you need to clean the DB
 DatabaseCleaner.clean
 
-feature 'Account Creation' do
-  scenario 'allows guest to create account' do
+feature 'Article Creation' do
+  before(:all) do
     sign_up
+  end
+  scenario 'allows user to visit new article page' do
+    visit new_article_path
 
-    expect(page).to have_content I18n.t('devise.registrations.signed_up')
+    expect(page).to have_content 'New article'
   end
 end
 

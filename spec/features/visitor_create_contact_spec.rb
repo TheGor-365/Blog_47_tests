@@ -1,4 +1,10 @@
 require 'rails_helper'
+require 'database_cleaner/active_record'
+
+DatabaseCleaner.strategy = :truncation
+
+# then, whenever you need to clean the DB
+DatabaseCleaner.clean
 
 feature 'Contact Creation' do
   scenario 'allows access to contacts page' do
